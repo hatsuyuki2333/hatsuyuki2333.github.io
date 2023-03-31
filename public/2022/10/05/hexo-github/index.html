@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hexo-GithubPages部署指北 | 朝倉 初雪</title>
+        <meta name="author" content="Asakura hatsuyuki">
+        <meta name="description" content="吹雪摆烂的地方">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/avatar.jpg">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">朝倉 初雪</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+        <a href="/charts">
+            <i class="fa-solid fa-compact-disc fa-fw"></i>
+            <span>&ensp;charts</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+            <i class="fa-solid fa-download fa-fw"></i>
+            <span>&ensp;illusphere</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;朝倉 初雪</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+            <a href="/charts">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-compact-disc fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">charts</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-download fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">illusphere</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Hexo-GithubPages部署指北 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/2022年12月/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                2022年12月
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/hexo/" style="color: #00bcd4">
+                    hexo
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/github-pages/" style="color: #03a9f4">
+                    github pages
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/blog/" style="color: #00a596">
+                    blog
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="Hexo-GithubPages部署指北"><a href="#Hexo-GithubPages部署指北" class="headerlink" title="Hexo-GithubPages部署指北"></a>Hexo-GithubPages部署指北</h1><blockquote>
+<p>Tip:静态博客的核心在于写作的物理机。所以，在进行下面任意一步时，确保旁边有一台电脑。此外，这篇教程针对的是Windows，对于Linux，以后的文章会写到。</p>
+</blockquote>
+<h2 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1.安装Node.js"></a>1.安装Node.js</h2><p>Hexo基于Node.js，所以<strong>一切的开始</strong>，你需要安装<a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>。<br>单击16.17.1LTS下载（非LTS也可以，注意不要太久的版本）。<br>下载完毕之后，运行程序并安装（一直Next即可）。<br>安装完毕，调出cmd或者Powershell，运行<code>node -v</code>和<code>npm -v</code>指令。若指令返回版本号（而不是错误信息）就说明安装成功了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Windows\system32&gt; npm -v</span><br><span class="line">8.15.0</span><br><span class="line">PS C:\Windows\system32&gt; node -v</span><br><span class="line">v16.17.1  </span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2.安装Git"></a>2.安装Git</h2><p>打开<a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>首页，点击“Download for Windows”，找到“Other Git for Windows downloads”下的“Standalone Installer”，根据你的系统位数选择32bit&#x2F;64bit安装包。  S<br>下载完毕同样下一步下一步即可。完成后右键菜单会多出来“Git Bash Here”和“Git GUI Here”两项。在任意目录选择“Git Bash Here”（或使用PowerShell或CMD），输入<code>git --version</code>，返回如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\users\administrator\desktop\1&gt;git --version</span><br><span class="line">git version 2.37.2.windows.2</span><br></pre></td></tr></table></figure>
+
+<p>至此Git安装完成。</p>
+<h2 id="3-安装并部署Hexo"><a href="#3-安装并部署Hexo" class="headerlink" title="3.安装并部署Hexo"></a>3.安装并部署Hexo</h2><p>在你想存放博客数据的地方新建一个文件夹，随便什么名字。打开powershell并cd到此目录，输入<code>npm install hexo-cli -g</code><br>返回结果大概是这样。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Windows\system32&gt; npm install hexo-cli -g</span><br><span class="line">added 1 package, and changed 58 packages in 14s    </span><br></pre></td></tr></table></figure>
+
+<p>然后输入<code>hexo init</code> (如果提示计算机已禁用脚本xxx.ps1，就换cmd并且cd到博客目录）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\users\administrator\desktop\1&gt;hexo init</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">INFO  Start blogging with Hexo!    </span><br></pre></td></tr></table></figure>
+
+<p>此时Hexo会克隆“hexo-starter”仓库，完成后显示“Start Blogging With Hexo”。<br>输入<code>hexo s</code>启动本地预览。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\users\administrator\desktop\1&gt;hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>至此，你的博客就算是部署完成了！</p>
+<h2 id="3-个性化博客"><a href="#3-个性化博客" class="headerlink" title="3.个性化博客"></a>3.个性化博客</h2><blockquote>
+<p>记得Ctrl-C关掉预览！</p>
+</blockquote>
+<h3 id="主题的配置"><a href="#主题的配置" class="headerlink" title="主题的配置"></a>主题的配置</h3><p>Hexo的<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes</a>页面会对你有所帮助。<br>打开主题页面，选择喜爱的主题，把它下载到博客目录下&#x2F;themes文件夹里，并且把根目录下config.yml中theme改成你主题的文件夹的名字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: landscape  #修改此处    </span><br></pre></td></tr></table></figure>
+
+<p>再次打开本地预览，正常的话，主题应该可以加载。</p>
+<h3 id="网站标题-x2F-副标题-x2F-撰写者"><a href="#网站标题-x2F-副标题-x2F-撰写者" class="headerlink" title="网站标题&#x2F;副标题&#x2F;撰写者"></a>网站标题&#x2F;副标题&#x2F;撰写者</h3><p>在根目录下config.yml中修改。<br>提供一个模板，按需取用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Your own title</span><br><span class="line">subtitle: &#x27;it can be empty&#x27;</span><br><span class="line">description: &#x27;for better SEO,you can write it if you need&#x27;</span><br><span class="line">keywords: also for SEO</span><br><span class="line">author: Your Name</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: &#x27;Asia/Shanghai&#x27;   </span><br></pre></td></tr></table></figure>
+
+<p>Title即标题，Subtitle为副标题。Author即显示的作者。语言和时区照抄就OK。<br>如果有中文，需要另存为<strong>UTF-8</strong>格式的文件，要不然会乱码。 <strong>所有“:”之后均有一个空格，不要删除！</strong></p>
+<h2 id="部署到GitHub-Pages"><a href="#部署到GitHub-Pages" class="headerlink" title="部署到GitHub Pages"></a>部署到GitHub Pages</h2><h3 id="配置GitHub账号"><a href="#配置GitHub账号" class="headerlink" title="配置GitHub账号"></a>配置GitHub账号</h3><p>在Git Bash中输入 <code>git config --global user.name &quot;Your GitHub Account Name&quot;</code>     </p>
+<p><code>git config --global user.email &quot;Your Github Account&#39;s Email&quot;</code></p>
+<h3 id="配置SSH秘钥"><a href="#配置SSH秘钥" class="headerlink" title="配置SSH秘钥"></a>配置SSH秘钥</h3><p><code>ssh-keygen -t rsa -C &quot;Your Github Account&#39;s email&quot;</code> 后面连敲回车就行<br>返回大概如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">C:\users\administrator\desktop\1&gt;ssh-keygen -t rsa -C &quot;someone@example.com&quot;</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (C:\Users\Administrator/.ssh/id_rsa):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in C:\Users\Administrator/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in C:\Users\Administrator/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:jgcBZgPRIGuuVyommF1Q someone@example.com</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|  oo. o          |</span><br><span class="line">|.E. .  + .       |</span><br><span class="line">|. o              |</span><br><span class="line">|  +              |</span><br><span class="line">|o                |</span><br><span class="line">| .               |</span><br><span class="line">|oo.              |</span><br><span class="line">|                 |</span><br><span class="line">|                 |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+
+<p>打开<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>-&gt;Settings-&gt;SSH &amp; GPG Keys-&gt;New SSH key<br>打开<strong>C:\Users\Administrator（即你的用户名）.ssh\id_rsa.pub</strong>，把里面所有字符复制粘贴到网页中“Key”文本框中，Title随意填。<br>点击“Add SSH Key”即可。<br>返回Git Bash，输入<code>ssh git@github.com</code><br>返回Hi,xxx.You’ve successfully authenticated……..则配置成功。</p>
+<h3 id="推送Blog"><a href="#推送Blog" class="headerlink" title="推送Blog"></a>推送Blog</h3><h4 id="新建存储库（Repository）"><a href="#新建存储库（Repository）" class="headerlink" title="新建存储库（Repository）"></a>新建存储库（Repository）</h4><p>打开新建页面     </p>
+<p>Repository Name填写 你的Github用户名.github.io    </p>
+<p>Description 随便填    </p>
+<p>选择Public    </p>
+<p>选择Add a README file</p>
+<p>点击 Create repository   </p>
+<p>就新建完成了。   </p>
+<p>完成后切到Repo的settings页面，找到pages选项。设置Deploy from a branch，选择master分支&#x2F;root目录。</p>
+<h4 id="配置Git推送"><a href="#配置Git推送" class="headerlink" title="配置Git推送"></a>配置Git推送</h4><p>在仓库页面Code下找到SSH地址（<a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a>:用户名&#x2F;用户名.github.io.git）复制。   </p>
+<p>打开博客目录下config.yml，页面底部照这个填写   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: &#x27;git&#x27;</span><br><span class="line"> repo: git@github.com:你的用户名/你的用户名.github.io.git</span><br><span class="line"> branch: master</span><br></pre></td></tr></table></figure>
+
+<p>回到GitBash, 输入<code>npm install hexo-deployer-git</code> 安装部署插件。   </p>
+<p>安装完成后，输入<code>hexo s</code>   </p>
+<p>部署完成，等待一会就能看到成品（不是）了。</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2023 朝倉 初雪
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Asakura hatsuyuki
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=hatsuyuki2333.github.io">
+                萌ICP备20220635号
+            </a>
+        </div>
+        
+        <p id="hitokoto">
+            <a href="#" id="hitokoto_text">:D 获取中...</a>
+          </p>
+          <script>
+            fetch('https://v1.hitokoto.cn')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text')
+                hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                hitokoto.innerText = data.hitokoto
+              })
+              .catch(console.error)
+          </script>          
+    </div>
+</footer>
+
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        
+
+    </body>
+</html>

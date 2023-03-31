@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>3202年红米2搞机的正确姿势 | 朝倉 初雪</title>
+        <meta name="author" content="Asakura hatsuyuki">
+        <meta name="description" content="吹雪摆烂的地方">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/avatar.jpg">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">朝倉 初雪</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+        <a href="/charts">
+            <i class="fa-solid fa-compact-disc fa-fw"></i>
+            <span>&ensp;charts</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+            <i class="fa-solid fa-download fa-fw"></i>
+            <span>&ensp;illusphere</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;朝倉 初雪</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+            <a href="/charts">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-compact-disc fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">charts</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-download fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">illusphere</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>3202年红米2搞机的正确姿势 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/2/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/2023年2月/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                2023年2月
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/redmi-2/" style="color: #03a9f4">
+                    redmi 2
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/twrp/" style="color: #00a596">
+                    twrp
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/lineage/" style="color: #00a596">
+                    lineage
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="3202年红米2搞机的正确姿势"><a href="#3202年红米2搞机的正确姿势" class="headerlink" title="3202年红米2搞机的正确姿势"></a>3202年红米2搞机的正确姿势</h1><p>120买了台红米2，顺便收了一张32G的SD卡和一块备用电池，总共185块钱。</p>
+<p>拿到手之后先看系统，发现已经是MIUI9（Android5.0）了，就不用先更新固件版本。如果是安卓4.4需要先更新固件版本，后面再说。</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Redmi 2</th>
+<th>Redmi 2A</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SoC</td>
+<td>Snapdragon 410 ARM64</td>
+<td>L1860C ARM</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>2GB LPDDR3</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>16GB eMMC</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>External   Storage</td>
+<td>32GB Max</td>
+<td>Same</td>
+</tr>
+</tbody></table>
+<p>红米2的SoC是骁龙410，而2A是联芯L1860C，由于L1860C主频更高所以2A性能略好，但是410是64位处理器，而L1860C仅32位，所以410对大多数现代应用程序兼容性较好，可以刷MIUI安卓5，而L1860C就只能停留在安卓4.4了。</p>
+<p>但是抛开官方源，我们还有更多的选择。主流第三方ROM对红米2均提供支援，比如Lineage，Arrow和Mokee，都支持到安卓10。由于第三方ROM基本上把2和2A视为同一款机型，所以都只做了32位系统，发挥不出来410的64位支援。所以我选择了自己build64位ROM。</p>
+<p>自己build的bug贼多，我又抽不出来太多时间，于是放弃了。还好XDA上已经有人做出来了安卓8.1的64位ROM，够用了。</p>
+<p>开整！</p>
+<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p>你需要准备：一台运行<strong>windows7及以上&#x2F;Ubuntu18以上&#x2F;MacOS</strong>的电脑；一台<strong>红米2</strong>；一张4~32GB的SD卡；一根USB数据线；足够的<strong>阅读能力</strong>和<strong>脑子</strong></p>
+<h2 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h2><p><a target="_blank" rel="noopener" href="https://forum.xda-developers.com/t/experimental-rom-arm64-redmi2-8-1-0-unofficial-lineageos-15-1.3847951/">原帖地址</a>在这里，不过我还是直接把链接先copy过来得了</p>
+<blockquote>
+<p>ADB工具（选择对应系统的版本，下载之后解压）     </p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Link</a></p>
+<p>64位的TWRP（下载之后移动到ADB文件夹并重命名为twrp.img）<br><a target="_blank" rel="noopener" href="https://www.androidfilehost.com/?fid=11410963190603861795">Link</a></p>
+<p>System分区扩容工具（两个都需要）<br><a target="_blank" rel="noopener" href="https://forum.xda-developers.com/attachments/1resize-system-redmi2-v1-03-20180623-1847-signed-zip.4534093/">Link1-ResizePartition</a>      </p>
+<p><a target="_blank" rel="noopener" href="https://forum.xda-developers.com/attachments/3expand-filesystem-redmi2-v1-03-signed-zip.4534094/">Link2-ExpandPartition</a></p>
+<p>ROM<br><a target="_blank" rel="noopener" href="https://androidfilehost.com/?w=files&flid=283111">Link</a></p>
+</blockquote>
+<p>System扩容工具和ROM下载之后移动到SD卡中，并装入手机。</p>
+<h2 id="连接电脑"><a href="#连接电脑" class="headerlink" title="连接电脑"></a>连接电脑</h2><p>将手机进入开发者模式（没进入百度即可），找到并开启“通过USB调试”选项和有关FASTBOOT的选项。</p>
+<p>把手机用USB线连接到电脑上。</p>
+<p>在ADB目录内打开终端。     </p>
+<table>
+<thead>
+<tr>
+<th>Windows</th>
+<th>Ubuntu</th>
+<th>MacOS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows徽标+R打开运行，输入<code>cmd</code>并回车,在窗口内输入<code>cd</code>并拖动ADB文件夹到窗口，之后Enter</td>
+<td>Ctrl+Alt+T打开终端，cd到ADB目录。也可以<code>sudo apt-get install nautilus-open-terminal</code>，完成之后<code>nautilus -q</code>，ADB文件夹内右键会有<code>Open in Terminal</code>选项</td>
+<td>打开终端之后<code>cd</code>并将ADB文件夹拖动到窗口内，回车</td>
+</tr>
+</tbody></table>
+<p>输入<code>adb devices</code>，手机会提示“是否允许该计算机调试”，选择允许。</p>
+<p>adb应该会返回<code>xxxxxx device</code>说明已连接。如果没有，尝试安装驱动（百度即可）。</p>
+<h2 id="刷入TWRP"><a href="#刷入TWRP" class="headerlink" title="刷入TWRP"></a>刷入TWRP</h2><blockquote>
+<p>红米2那个年代还没有流行起BL锁，所以不用解BL。</p>
+</blockquote>
+<p>终端内输入<code>adb reboot bootloader</code>，设备应当重启，进入“米兔维修”界面，有蓝色<strong>FASTBOOT</strong>字样出现。</p>
+<p>终端<code>fastboot devices</code>，应该会提示<code>xxxxxx fastboot</code>.Ubuntu和MacOS提示<code>Permission denied</code>需要用root权限运行。</p>
+<p>终端<code>fastboot flash recovery twrp.img</code>,刷入TWRP。</p>
+<p>成功之后关机，同时按住<strong>音量↑+音量↓+电源键</strong>，启动到Recovery。屏幕会显示<strong>TEAMWIN Recovery Project</strong>字样。</p>
+<h2 id="扩容分区"><a href="#扩容分区" class="headerlink" title="扩容分区"></a>扩容分区</h2><p><strong>扩容System有变砖风险，谨慎！！！！</strong></p>
+<p>进入TWRP之后会提示是否保持System分区为只读，此处<strong>不要选择保持只读，直接划到底</strong>，进入主页。</p>
+<p>点击<code>Install</code>,找到<code>1Resize-System-Redmi2.zip</code>,点击<code>Install</code>，接下来的页面不用管直接划到底。找不到zip点击<code>Select Storage</code>找找其他位置</p>
+<p>安装时会弹出GUI，直接Next即可，<code>Select System Size</code>可选1.5GB或2GB，推荐2GB是因为后续可以刷OpenGAPPS。最后选择START。</p>
+<p>最终会提示<code>ALL DONE</code>,点击Reboot即可，会自动重启到Recovery。</p>
+<h2 id="刷入ROM"><a href="#刷入ROM" class="headerlink" title="刷入ROM"></a>刷入ROM</h2><p>进入TWRP之后点击<code>Install</code>,找到ROM文件，选择<code>Install</code>即可。</p>
+<p>刷入完成之后，<strong>不要Reboot</strong>，选择Back。回到Install界面，找到<code>3Expand-filesystem-Redmi2.zip</code>,安装。</p>
+<p>完成之后，就可以重启到系统了。</p>
+<p>开始设置吧！</p>
+<h2 id="补充：安装OpenGAPPS"><a href="#补充：安装OpenGAPPS" class="headerlink" title="补充：安装OpenGAPPS"></a>补充：安装OpenGAPPS</h2><blockquote>
+<p>为什么我把OpenGapps单独拎出来呢？因为如果刷ROM之后直接装OpenGAPPS可能会因为众所周知的网络原因无法登录，没法正常使用手机。所以这里<strong>默认</strong>你已经做好了科学上网的准备。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://opengapps.org/">OpenGAPPS下载地址</a>       </p>
+<p>选择ARM64—8.1—nano，点击下载按钮，下载文件。完成之后拷到SD卡内，装入手机。</p>
+<p>重启到Recovery，点击<code>Install</code>选择OpenGAPPS文件，并安装。完成之后重启即可。接下来就可以设置谷歌账户了。</p>
+<h2 id="补充：Magisk"><a href="#补充：Magisk" class="headerlink" title="补充：Magisk"></a>补充：Magisk</h2><p>直接找boot.img修补来安装Magisk太麻烦，这里讲root之后直接安装Magisk的方式，比较简捷。</p>
+<h3 id="ROOT"><a href="#ROOT" class="headerlink" title="ROOT"></a>ROOT</h3><p>LineageOS17之前，root权限需要单独刷入扩展包实现。这里需要两个文件，一个用于安装，一个用于删除。</p>
+<p><a target="_blank" rel="noopener" href="https://mirrorbits.lineageos.org/su/20190709/addonsu-15.1-arm64-signed.zip">SU安装包</a>      </p>
+<p><a target="_blank" rel="noopener" href="https://mirrorbits.lineageos.org/su/20190709/addonsu-remove-15.1-arm64-signed.zip">SU卸载包</a>     </p>
+<p>下载之后移动到SD卡，并装入手机。</p>
+<p>重启到Recovery，点<code>Install</code>，选择<code>addonsu-15.1-arm64-signed.zip</code>,安装。完成后重启到系统，在开发者模式下找到ROOT权限管理，授予“应用和ADB”。</p>
+<h3 id="安装Magisk"><a href="#安装Magisk" class="headerlink" title="安装Magisk"></a>安装Magisk</h3><p>安装最新版Magisk APP，点击安装—直接安装，等待ROOT权限申请提示出现并允许。安装完成之后就好了。</p>
+<p>不要立即重启，选择自行重启。<strong>立即重启之后会提示发现不属于Magisk的SU模块，还是得进行下一步卸载。</strong></p>
+<p>重启到Recovery，点<code>Install</code>，选择<code>addonsu-remove-15.1-arm64-signed.zip</code>，安装，完成之后重启。</p>
+<p>就可以愉快的使用Magisk了。</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2023 朝倉 初雪
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Asakura hatsuyuki
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=hatsuyuki2333.github.io">
+                萌ICP备20220635号
+            </a>
+        </div>
+        
+        <p id="hitokoto">
+            <a href="#" id="hitokoto_text">:D 获取中...</a>
+          </p>
+          <script>
+            fetch('https://v1.hitokoto.cn')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text')
+                hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                hitokoto.innerText = data.hitokoto
+              })
+              .catch(console.error)
+          </script>          
+    </div>
+</footer>
+
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        
+
+    </body>
+</html>
