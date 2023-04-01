@@ -1,0 +1,89 @@
+<% 
+    var layout = "post";
+    if (is_home())
+        layout = "index";
+    else if (is_post())
+        layout = "post";
+    else if (is_category() || page.title == "categories")
+        layout = "categories";
+    else if (is_tag() || page.title == "tags")
+        layout = "tags";
+    else if (is_archive() || is_year() || is_month())
+        layout = "archives";
+    var pageTitle = "";
+    if (page.title)
+        pageTitle = page.title + " | ";
+    else if (is_category())
+        pageTitle = "Categories: " + page.category + " | ";
+    else if (is_tag())
+        pageTitle = "Tags: " + page.tag + " | ";
+    else if (is_archive() || is_year() || is_month())
+        pageTitle = "Archives | ";
+    pageTitle += config.title;
+    var rootlink = config.root;
+    site.posts.data.sort((a, b) => b.date - a.date)
+%>
+<!DOCTYPE html>
+<html lang="<%- config.language %>">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title><%= titlecase(pageTitle) %></title>
+        <meta name="author" content="<%- config.author %>">
+        <meta name="description" content="<%- config.description %>">
+        <meta name="keywords" content="<%- config.keywords %>">
+        <link rel="icon" href="<%- theme.head_img %>">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        <% if (theme.vf_fonts_enable) { %>
+        <link rel="stylesheet" href="<%- rootlink %>css/test/fonts.min.css">
+        <link rel="stylesheet" href="<%- rootlink %>css/test/particlex.css">
+        <% } else { %>
+        <link rel="stylesheet" href="<%- rootlink %>css/fonts.min.css">
+        <link rel="stylesheet" href="<%- rootlink %>css/particlex.css">
+        <% } %>
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    </head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="<%- rootlink %>loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                        <%- include("menu") %>
+                    </div>
+                    <div id="main">
+                        <%- include(layout) %>
+                        <%- include("footer") %>
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="<%- rootlink %>js/particlex.js"></script>
+        <script src="<%- rootlink %>js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        <%- include("script") %>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+# Theme Github link: https://github.com/argvchs/hexo-theme-particlex
+# Developer: argvchs
+
+# avatar image url
+head_img: /avatar.jpg
+
+# home page head info block
+head_block_enable: true
+
+# home page head background style
+home_background: /bg.jpg
+
+# WARNING! vf_fonts (variable fonts) feature is EXPERIMENTAL
+# MDN: https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
+vf_fonts_enable: false
+
+# ParticleX theme icon is adopts the font awesome 6
+# Link: https://fontawesome.com/search/
+
+# main menu navigation
+menu:
+    home:
+        name: house
+        theme: solid
+        src: /
+    about:
+        name: id-card
+        theme: solid
+        src: /about
+    archives:
+        name: box-archive
+        theme: solid
+        src: /archives
+    categories:
+        name: bookmark
+        theme: solid
+        src: /categories
+    tags:
+        name: tags
+        theme: solid
+        src: /tags
+    charts:
+        name: compact-disc
+        theme: solid
+        src: /charts
+    illusphere:
+        name: download
+        theme: solid
+        src: https://illusphere.hatsuyuki.eu.org
+        
+    # Example:
+    # <name>:
+    #     name: <icon-name>
+    #     theme: <icon-theme>
+    #     src: <link-url>
+
+# side info card
+card:
+    enable: true
+    description: ["CytusII Fan-made Charter & Rayarker"] # You can add more
+    icon_links:
+        github:
+            name: github
+            theme: brands
+            link: https://github.com/hatsuyuki2333
+        bilibili:
+            name: bilibili
+            theme: brands
+            link: https://space.bilibili.com/430277415
+        twitter:
+            name: twitter
+            theme: brands
+            link: https://twitter.com/CySakaino
+        cytoid:
+            name: circle
+            theme: regular
+            link: https://cytoid.io/profile/firesine_233
+        # Example:
+        # <name>:
+        #    name: <icon-name>
+        #    theme: <icon-theme>
+        #    link: <link-url>
+    friend_links:
+        Cat's World: https://blog.qmqaq.top
+        NervBot Docs: https://hatsuyuki.eu.org/nervdocs
+        Potatoeees: https://endersmap.github.io
+        一叶知秋: https://blog.rain.cx
+        CH₃COOC₂H₅: https://echiru.top
+        # Example:
+        # <name>: <link-url>
+
+# footer info
+footer:
+    since: 2019
+    # Customize the server domain name ICP
+    ICP:
+        enable: true
+        code: 萌ICP备20220635号
+        link: https://icp.gov.moe/?keyword=hatsuyuki2333.github.io
+
+# Gitalk
+# https://github.com/gitalk/gitalk
+gitalk:
+    enable: false
+    clientID: # Default ClientID
+    clientSecret: # Default ClientSecret
+    repo: # The name of repository of store comments
+    owner: # GitHub repo owner
+    admin: # GitHub repo owner and collaborators, only these guys can initialize github issues
+    language: zh-CN # en, zh-CN, zh-TW, es-ES, fr, ru, de, pl and ko are currently available.
+    proxy: # CORS proxy
+    sites: # Sites
+        []
+        # Example:
+        # <www.example.com>:
+        #    clientID: <client-id>
+        #    clientSecret: <client-secret>
