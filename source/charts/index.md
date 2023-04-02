@@ -1,7 +1,7 @@
 ---
 date: '2022-09-30 09:55:16'
 title: charts
-updated: Sun, 02 Apr 2023 03:39:27 GMT
+updated: Sun, 02 Apr 2023 07:27:57 GMT
 ---
 # 吹雪创作的谱面
 
@@ -19,12 +19,9 @@ updated: Sun, 02 Apr 2023 03:39:27 GMT
 
 **Merry Christmas**
 
-
 <iframe src="https://player.bilibili.com/player.html?aid=264060222&bvid=BV1ne411c76T&cid=932203572&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-
 ### Altale - Sakuzyo
-
 
 <iframe src="https://player.bilibili.com/player.html?aid=385029676&bvid=BV1UZ4y1q7Hx&cid=748802499&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
@@ -32,12 +29,9 @@ updated: Sun, 02 Apr 2023 03:39:27 GMT
 
 ### Senbonzakura - Hatsune Miku
 
-
 <iframe src="https://player.bilibili.com/player.html?aid=510151462&bvid=BV1au411v7zB&cid=560992988&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-
 <button onclick="window.open('https://cytoid.io/levels/sakaino.senbonzakura.miku')">Get it on Cytoid</button>
-
 
 ### Ephemeral Memories - MoreanP
 
@@ -49,15 +43,10 @@ updated: Sun, 02 Apr 2023 03:39:27 GMT
 
 ### Infinity Heaven - HyuN
 
-
-
 <iframe src="https://player.bilibili.com/player.html?aid=899438286&bvid=BV1HN4y1G7eW&cid=800059512&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
 
 ### RainyBoots - Inabakumori
 
-
 <iframe src="https://player.bilibili.com/player.html?aid=301880225&bvid=BV1nF411w7QK&cid=800061321&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
 
 <button onclick="window.open('https://cytoid.io/levels/sakaino.rainyboots.inabakumori')">Get it on Cytoid</button>
