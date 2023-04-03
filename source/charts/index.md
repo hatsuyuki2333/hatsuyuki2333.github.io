@@ -1,7 +1,7 @@
 ---
 date: '2022-09-30 09:55:16'
 title: charts
-updated: Sun, 02 Apr 2023 22:36:59 GMT
+updated: Mon, 03 Apr 2023 10:59:29 GMT
 ---
 # 吹雪创作的谱面
 
@@ -49,5 +49,4 @@ updated: Sun, 02 Apr 2023 22:36:59 GMT
 
 <iframe src="https://player.bilibili.com/player.html?aid=301880225&bvid=BV1nF411w7QK&cid=800061321&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-
-<a target="_blank" rel="noopener" href="https://cytoid.io/levels/sakaino.rainyboots.dyt"> Get it on Cytoid </a>
+<a target="_blank" rel="noopener" href="https://cytoid.io/levels/sakaino.rainyboots.inabakumori"> Get it on Cytoid </a>
