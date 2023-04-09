@@ -8,7 +8,7 @@ head_img: /avatar.jpg
 head_block_enable: true
 
 # home page head background style
-home_background: /bg.jpg
+home_background: https://img.tapimg.com/market/images/4c083521703ddba0d6465c70ffd0cdc3.jpg
 
 # WARNING! vf_fonts (variable fonts) feature is EXPERIMENTAL
 # MDN: https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
