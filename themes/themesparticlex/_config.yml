@@ -70,7 +70,7 @@ card:
         twitter:
             name: twitter
             theme: brands
-            link: https://twitter.com/CySakaino
+            link: https://twitter.com/hatsuyuki_suki
         cytoid:
             name: circle
             theme: regular
@@ -85,7 +85,7 @@ card:
         NervBot Docs: https://hatsuyuki.eu.org/nervdocs
         Potatoeees: https://endersmap.github.io
         一叶知秋: https://blog.rain.cx
-        CH₃COOC₂H₅: https://echiru.top
+        CH3COOC2H5: https://echiru.top
         # Example:
         # <name>: <link-url>
 
@@ -96,7 +96,7 @@ footer:
     ICP:
         enable: true
         code: 萌ICP备20220635号
-        link: https://icp.gov.moe/?keyword=hatsuyuki2333.github.io
+        link: https://icp.gov.moe/?keyword=hatsuyuki.eu.org
 
 # Gitalk
 # https://github.com/gitalk/gitalk
