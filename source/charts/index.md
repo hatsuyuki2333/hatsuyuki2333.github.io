@@ -1,11 +1,21 @@
 ---
-date: '2022-09-30 09:55:16'
+date: 2022-09-30 09:55:16
 title: charts
-updated: Mon, 03 Apr 2023 10:59:29 GMT
+updated: Tue, 11 Apr 2023 08:30:34 GMT
 ---
 # 吹雪创作的谱面
 
-### Published——Stasis - Maozon
+### Published --- Class Memories - Antistar vs Ctymax
+
+> 2023.4.11
+
+<iframe src="https://player.bilibili.com/player.html?aid=569750743&bvid=BV13v4y1H7GF&cid=1091403704&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+<a target="_blank" rel="noopener" href="https://cytoid.io/levels/yuki.classmemo.ctymax"> Get it on Cytoid </a>
+
+
+### Stasis - Maozon
 
 > 2023.4.1
 
