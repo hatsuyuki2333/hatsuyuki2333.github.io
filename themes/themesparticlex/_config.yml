@@ -8,7 +8,7 @@ head_img: /avatar.jpg
 head_block_enable: true
 
 # home page head background style
-home_background: /bg.webp
+home_background: /bg.gif
 
 # WARNING! vf_fonts (variable fonts) feature is EXPERIMENTAL
 # MDN: https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
