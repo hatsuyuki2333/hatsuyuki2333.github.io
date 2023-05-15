@@ -7,6 +7,7 @@ tags:
 - EFI Shell
 - Arch Linux
 title: EFI Shell應急啟動系統
+description: 用EFI Shell應急啟動移動設備上的操作系統
 updated: 2023-5-15T15:45:50.368+8:0
 ---
 # EFI Shell應急啟動系統
