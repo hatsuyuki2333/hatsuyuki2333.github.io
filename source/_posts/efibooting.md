@@ -3,12 +3,12 @@ abbrlink: efibiooting
 categories:
 - - 2023年5月
 date: '2023-05-15 14:30:08'
+description: 用EFI Shell應急啟動移動設備上的操作系統
 tags:
 - EFI Shell
 - Arch Linux
 title: EFI Shell應急啟動系統
-description: 用EFI Shell應急啟動移動設備上的操作系統
-updated: 2023-5-15T15:45:50.368+8:0
+updated: 2023-5-15T16:1:15.127+8:0
 ---
 # EFI Shell應急啟動系統
 
