@@ -1,9 +1,13 @@
 ---
 date: 2022-09-30 09:55:16
 title: charts
-updated: Tue, 11 Apr 2023 08:30:34 GMT
+updated: 2023-5-25T6:48:14.674+8:0
 ---
 # 吹雪创作的谱面
+
+### Charting --- Grievous Lady - Laur
+
+![DEMO](https://hatsuyuki.eu.org/charts/demo/newest_demo.mp4)
 
 ### Published --- Class Memories - Antistar vs Ctymax
 
@@ -11,9 +15,7 @@ updated: Tue, 11 Apr 2023 08:30:34 GMT
 
 <iframe src="https://player.bilibili.com/player.html?aid=569750743&bvid=BV13v4y1H7GF&cid=1091403704&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-
 <a target="_blank" rel="noopener" href="https://cytoid.io/levels/yuki.classmemo.ctymax"> Get it on Cytoid </a>
-
 
 ### Stasis - Maozon
 
