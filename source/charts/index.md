@@ -7,7 +7,7 @@ updated: 2023-5-25T6:48:14.674+8:0
 
 ### Charting --- Grievous Lady - Laur
 
-![DEMO](https://hatsuyuki.eu.org/charts/demo/newest_demo.mp4)
+![DEMO](/demo/newest_demo.mp4)
 
 ### Published --- Class Memories - Antistar vs Ctymax
 
