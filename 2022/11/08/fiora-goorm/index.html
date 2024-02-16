@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Fiora+Goorm IDE部署在线聊天系统 | 朝倉 初雪</title>
+        <meta name="author" content="Asakura hatsuyuki">
+        <meta name="description" content="吹雪摆烂的地方">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/avatar.jpg">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.1.1"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">朝倉 初雪</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+        <a href="/charts">
+            <i class="fa-solid fa-compact-disc fa-fw"></i>
+            <span>&ensp;charts</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+            <i class="fa-solid fa-download fa-fw"></i>
+            <span>&ensp;illusphere</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;朝倉 初雪</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+            <a href="/charts">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-compact-disc fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">charts</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-download fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">illusphere</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Fiora+Goorm IDE部署在线聊天系统 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/8
+        </span>
+        
+        <span class="category">
+            <a href="/categories/2022年11月/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                2022年11月
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/node-js/" style="color: #ff7d73">
+                    node.js
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/goormIDE/" style="color: #00a596">
+                    goormIDE
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/fiora/" style="color: #00a596">
+                    fiora
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/chatroom/" style="color: #00bcd4">
+                    chatroom
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="Fiora-GoormIDE部署在线聊天系统"><a href="#Fiora-GoormIDE部署在线聊天系统" class="headerlink" title="Fiora+GoormIDE部署在线聊天系统"></a>Fiora+GoormIDE部署在线聊天系统</h1><blockquote>
+<p>Tip：GoormIDE今年10月停止了对免费用户的Always-On（保持开启）功能，如果你有一个早于10月注册的账号，则会保有Always-On功能，可以参照这篇文章。当然升级计划也可以，IDE配置会提高，还允许绑自己的域名。升级计划之后该文章仍然可用。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://yinxin630.github.io/fiora/zh-Hans/">fiora</a> 是一款有趣的聊天应用. 基于 node.js, MongoDB, react 和 socket.io 等技术开发。该项目起始于2015-11-04。<br><a href="ide.goorm.io">GoormIDE</a>提供免费的CloudIDE环境，支持Python，Java，PHP，Kotlin，Ruby等多种语言的开发环境。免费IDE提供Docker内Ubuntu18.04&#x2F;16.04&#x2F;14.04（root账户），8核心EPYC7742、1GB RAM和10GB存储。     </p>
+<h2 id="创建容器（Container）"><a href="#创建容器（Container）" class="headerlink" title="创建容器（Container）"></a>创建容器（Container）</h2><p>在Goorm主页中选择New Container，输入名称，选择Blank（空白模板），勾选Install MongoDB（安装MongoDB）<br><img src="/images/fiora-goorm/new.png" alt="goorm"><br>然后点击Create，等待完成。<br>出现“Container has been successfully created.Run the generated container XXXX”后，         </p>
+<ul>
+<li><p>2022&#x2F;10之后注册的用户没有Always-On选项，直接点击Run Container         </p>
+</li>
+<li><p>2022&#x2F;10之前注册&#x2F;开通了其他计划的用户，刷新页面，点击stop（关闭容器），打开Always-On之后再Run Container。</p>
+</li>
+</ul>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>IDE开启后是这样的界面<br><img src="/images/fiora-goorm/ide.png" alt="ide"></p>
+<h3 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h3><p>打开<a target="_blank" rel="noopener" href="https://redis.io/topics/quickstart">https://redis.io/topics/quickstart</a>，选Install redis  on Linux，选择第一种方法安装。       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">echo &quot;deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/redis.list</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>返回如下：       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt# curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">root@goorm:/workspace/fioratt# echo &quot;deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/redis.list</span><br><span class="line">deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb bionic main</span><br><span class="line"></span><br><span class="line">root@goorm:/workspace/fioratt# sudo apt-get update</span><br><span class="line">Hit:1 [Index of /ubuntu](http://ap-northeast-2.ec2.archive.ubuntu.com/ubuntu) bionic InRelease</span><br><span class="line">Hit:2 [Index of /ubuntu](http://ap-northeast-2.ec2.archive.ubuntu.com/ubuntu) bionic-updates InRelease</span><br><span class="line">Hit:3 [Index of /ubuntu](http://ap-northeast-2.ec2.archive.ubuntu.com/ubuntu) bionic-backports InRelease</span><br><span class="line">Ign:6 https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 InRelease</span><br><span class="line">Get:5 https://cli-assets.heroku.com/apt ./ InRelease [2550 B]</span><br><span class="line">Hit:7 [Index of /ubuntu](http://security.ubuntu.com/ubuntu) bionic-security InRelease</span><br><span class="line">Err:5 https://cli-assets.heroku.com/apt ./ InRelease ease [2679 B]</span><br><span class="line">Err:5 https://cli-assets.heroku.com/apt ./ InRelease ease [2679 B]</span><br><span class="line">Err:5 https://cli-assets.heroku.com/apt ./ InRelease ease [2679 B]</span><br><span class="line">.................................................</span><br><span class="line">Err:5 https://cli-assets.heroku.com/apt ./ InRelease ease [2679 B]</span><br><span class="line"> The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 536F8F1DE80F6A35</span><br><span class="line">Get:11 https://packages.redis.io/deb bionic/main all Packages [2501 B]</span><br><span class="line">Err:4 [https://cf-cli-debian-repo.s3.amazonaws.com](https://cf-cli-debian-repo.s3.amazonaws.com) stable InRelease</span><br><span class="line"> The following signatures were invalid: EXPKEYSIG 172B5989FCD21EF8 CF CLI Team [cf-cli-eng@pivotal.io](mailto:cf-cli-eng@pivotal.io) Get:12 https://packages.redis.io/deb bionic/main amd64 Packages [10.4 kB]</span><br><span class="line">Fetched 22.0 kB in 4s (5172 B/s)</span><br><span class="line">Reading package lists... Done</span><br><span class="line">W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://cli-assets.heroku.com/apt ./ InRelease: The following signatures couldn&#x27;t be</span><br><span class="line">verified because the public key is not available: NO_PUBKEY 536F8F1DE80F6A35</span><br><span class="line">W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: [https://cf-cli-debian-repo.s3.amazonaws.com](https://cf-cli-debian-repo.s3.amazonaws.com) stable InRelease: The following signature</span><br><span class="line">s were invalid: EXPKEYSIG 172B5989FCD21EF8 CF CLI Team &lt;cf-cli-eng@pivotal.io&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后安装Redis:       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install redis</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree</span><br><span class="line">Reading state information... Done</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line"> redis-server redis-tools</span><br><span class="line">Suggested packages:</span><br><span class="line"> ruby-redis</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line"> redis redis-server redis-tools</span><br><span class="line">0 upgraded, 3 newly installed, 0 to remove and 193 not upgraded.</span><br><span class="line">Need to get 1346 kB of archives.</span><br><span class="line">After this operation, 8381 kB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] Y</span><br><span class="line">Get:1 https://packages.redis.io/deb bionic/main amd64 redis-tools amd64 6:7.0.5-1rl1~bionic1 [1222 kB]</span><br><span class="line">Get:2 https://packages.redis.io/deb bionic/main amd64 redis-server amd64 6:7.0.5-1rl1~bionic1 [85.7 kB]</span><br><span class="line">............................</span><br><span class="line">invoke-rc.d: policy-rc.d denied execution of start.</span><br><span class="line">Setting up redis (6:7.0.5-1rl1~bionic1) ...</span><br><span class="line">Processing triggers for systemd (237-3ubuntu10.29) ...</span><br></pre></td></tr></table></figure>
+
+<p>返回大概是这样。       </p>
+<h4 id="运行Redis服务"><a href="#运行Redis服务" class="headerlink" title="运行Redis服务"></a>运行Redis服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt# redis-server</span><br><span class="line">2086:C 08 Nov 2022 03:21:05.199 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">2086:C 08 Nov 2022 03:21:05.199 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=2086, just started</span><br><span class="line">2086:C 08 Nov 2022 03:21:05.199 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf</span><br><span class="line">2086:M 08 Nov 2022 03:21:05.199 * Increased maximum number of open files to 10032 (it was originally set to 1024).</span><br><span class="line">2086:M 08 Nov 2022 03:21:05.199 * monotonic clock: POSIX clock_gettime</span><br><span class="line"> _._</span><br><span class="line"> _.-``__ &#x27;&#x27;-._</span><br><span class="line"> _.-`` `. `_. &#x27;&#x27;-._ Redis 7.0.5 (00000000/0) 64 bit</span><br><span class="line"> .-`` .-```. ```\/ _.,_ &#x27;&#x27;-._</span><br><span class="line"> ( &#x27; , .-` | `, ) Running in standalone mode</span><br><span class="line"> |`-._`-...-` __...-.``-._|&#x27;` _.-&#x27;| Port: 6379</span><br><span class="line"> | `-._ `._ / _.-&#x27; | PID: 2086</span><br><span class="line"> `-._ `-._ `-./ _.-&#x27; _.-&#x27;</span><br><span class="line"> |`-._`-._ `-.__.-&#x27; _.-&#x27;_.-&#x27;|</span><br><span class="line"> | `-._`-._ _.-&#x27;_.-&#x27; | https://redis.io</span><br><span class="line"> `-._ `-._`-.__.-&#x27;_.-&#x27; _.-&#x27;</span><br><span class="line"> |`-._`-._ `-.__.-&#x27; _.-&#x27;_.-&#x27;|</span><br><span class="line"> | `-._`-._ _.-&#x27;_.-&#x27; |</span><br><span class="line"> `-._ `-._`-.__.-&#x27;_.-&#x27; _.-&#x27; `-._ `-.__.-&#x27; _.-&#x27; `-._ _.-&#x27;</span><br><span class="line"> `-.__.-&#x27;</span><br><span class="line"></span><br><span class="line">2086:M 08 Nov 2022 03:21:05.200 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.</span><br><span class="line">2086:M 08 Nov 2022 03:21:05.200 # Server initialized</span><br><span class="line">2086:M 08 Nov 2022 03:21:05.200 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add &#x27;vm.overcommit_memory = 1&#x27; to /etc/sysctl.conf and then reboot or run the com</span><br><span class="line">mand &#x27;sysctl vm.overcommit_memory=1&#x27; for this to take effect.</span><br><span class="line">2086:M 08 Nov 2022 03:21:05.200 * Ready to accept connections</span><br></pre></td></tr></table></figure>
+
+<p>看到Ready to accept connections就说明安装好了，现在刷新Terminal（点击TERMINAL旁边的小箭头），再次运行<code>redis-server</code>，会提示<code>Failed listening on port 6379 (TCP), aborting.</code> 这说明redis服务已经在后台运行了。</p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>由于fiora需要特定版本的Node.js（14.15.0），这里需要用到nvm.        </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash</span><br><span class="line"></span><br><span class="line">export NVM_DIR=&quot;$([ -z &quot;$&#123;XDG_CONFIG_HOME-&#125;&quot; ] &amp;&amp; printf %s &quot;$&#123;HOME&#125;/.nvm&quot; || printf %s &quot;$&#123;XDG_CONFIG_HOME&#125;/nvm&quot;)&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</span><br></pre></td></tr></table></figure>
+
+<p>返回如下：      </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash</span><br><span class="line">=&gt; Downloading nvm from git to &#x27;/root/.nvm&#x27;</span><br><span class="line">=&gt; Cloning into &#x27;/root/.nvm&#x27;...</span><br><span class="line">remote: Enumerating objects: 356, done.</span><br><span class="line">remote: Counting objects: 100% (356/356), done.</span><br><span class="line">remote: Compressing objects: 100% (303/303), done.</span><br><span class="line">remote: Total 356 (delta 39), reused 164 (delta 27), pack-reused 0</span><br><span class="line">Receiving objects: 100% (356/356), 222.14 KiB | 475.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (39/39), done.</span><br><span class="line"></span><br><span class="line">- (HEAD detached at FETCH_HEAD)</span><br><span class="line">  master</span><br><span class="line">  =&gt; Compressing and cleaning up git repository</span><br><span class="line"></span><br><span class="line">=&gt; Appending nvm source string to /root/.bashrc</span><br><span class="line">=&gt; Appending bash_completion source string to /root/.bashrc</span><br><span class="line">=&gt; Close and reopen your terminal to start using nvm or run the following to use it now:</span><br><span class="line"></span><br><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</span><br><span class="line">[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot; # This loads nvm bash_completion</span><br><span class="line">root@goorm:/workspace/fioratt# export NVM_DIR=&quot;$([ -z &quot;$&#123;XDG_CONFIG_HOME-&#125;&quot; ] &amp;&amp; printf %s &quot;$&#123;HOME&#125;/.nvm&quot; || printf %s &quot;$&#123;XDG_CONFIG_HOME&#125;/nvm&quot;)&quot;</span><br><span class="line">root@goorm:/workspace/fioratt# [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</span><br></pre></td></tr></table></figure>
+
+<p>安装Node.js：       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 14.15.0</span><br></pre></td></tr></table></figure>
+
+<p>返回如下：     </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt# nvm install 14.15.0</span><br><span class="line">Downloading and installing node v14.15.0...</span><br><span class="line">Downloading https://nodejs.org/dist/v14.15.0/node-v14.15.0-linux-x64.tar.xz...</span><br><span class="line">########################################################################################################################################################################################################################## 100.0%</span><br><span class="line">Computing checksum with sha256sum</span><br><span class="line">Checksums matched!</span><br><span class="line">manpath: can&#x27;t set the locale; make sure $LC_* and $LANG are correct</span><br><span class="line">Now using node v14.15.0 (npm v6.14.8)</span><br><span class="line">Creating default alias: default -&gt; 14.15.0 (-&gt; v14.15.0)</span><br></pre></td></tr></table></figure>
+
+<p>验证安装：        </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt# node -v</span><br><span class="line">v14.15.0</span><br><span class="line">root@goorm:/workspace/fioratt# npm -v</span><br><span class="line">6.14.8</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装yarn"><a href="#安装yarn" class="headerlink" title="安装yarn:"></a>安装yarn:</h3><p><code>npm install -g yarn</code>            </p>
+<p>返回如下：       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt# npm install -g yarn</span><br><span class="line"></span><br><span class="line">&gt; yarn@1.22.19 preinstall /root/.nvm/versions/node/v14.15.0/lib/node_modules/yarn</span><br><span class="line">&gt; :; (node ./preinstall.js &gt; /dev/null 2&gt;&amp;1 || true)</span><br><span class="line"></span><br><span class="line">/root/.nvm/versions/node/v14.15.0/bin/yarn -&gt; /root/.nvm/versions/node/v14.15.0/lib/node_modules/yarn/bin/yarn.js</span><br><span class="line">/root/.nvm/versions/node/v14.15.0/bin/yarnpkg -&gt; /root/.nvm/versions/node/v14.15.0/lib/node_modules/yarn/bin/yarn.js</span><br><span class="line"></span><br><span class="line">- yarn@1.22.19</span><br><span class="line">  added 1 package in 2.375s</span><br></pre></td></tr></table></figure>
+
+<p>克隆项目到本地       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/yinxin630/fiora.git -b master</span><br></pre></td></tr></table></figure>
+
+<p>cd到fiora根目录：<code>cd fiora</code><br>安装依赖：<code>yarn install</code>.<strong>这一步会比较慢，因为内存太小了（1G），如果终端突然刷新就重新来过吧</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt/fiora(master)# yarn install</span><br><span class="line">yarn install v1.22.19</span><br><span class="line">[1/5] Validating package.json...</span><br><span class="line">[2/5] Resolving packages...</span><br><span class="line">[3/5] Fetching packages...</span><br><span class="line">info There appears to be trouble with your network connection. Retrying...</span><br><span class="line">[4/5] Linking dependencies...</span><br><span class="line">warning &quot; &gt; @testing-library/react@12.0.0&quot; has unmet peer dependency &quot;react@*&quot;.</span><br><span class="line">warning &quot; &gt; @testing-library/react@12.0.0&quot; has unmet peer dependency &quot;react-dom@*&quot;.</span><br><span class="line">warning &quot; &gt; @typescript-eslint/eslint-plugin@2.34.0&quot; has incorrect peer dependency &quot;eslint@^5.0.0 || ^6.0.0&quot;.</span><br><span class="line">warning &quot; &gt; @typescript-eslint/parser@2.34.0&quot; has incorrect peer dependency &quot;eslint@^5.0.0 || ^6.0.0&quot;.</span><br><span class="line">[5/5] Building fresh packages...</span><br><span class="line">$ npx lerna bootstrap &amp;&amp; yarn link</span><br><span class="line">lerna notice cli v4.0.0</span><br><span class="line">lerna info versioning independent</span><br><span class="line">lerna info Bootstrapping 10 packages</span><br><span class="line">lerna info Installing external dependencies    </span><br><span class="line">lerna info Symlinking packages and binaries</span><br><span class="line">lerna success Bootstrapped 10 packages</span><br><span class="line">yarn link v1.22.19</span><br><span class="line">success Registered &quot;fiora&quot;.</span><br><span class="line">info You can now run `yarn link &quot;fiora&quot;` in the projects where you want to use this package and it will be used instead.</span><br><span class="line">Done in 0.51s.</span><br><span class="line">Done in 540.43s.    </span><br></pre></td></tr></table></figure>
+
+<p>构建web客户端：<code>yarn build:web</code>.<strong>也很慢，耐心~</strong>         </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt/fiora# yarn build:web</span><br><span class="line">yarn run v1.22.19</span><br><span class="line">$ npx lerna run build:web --stream</span><br><span class="line">lerna notice cli v4.0.0</span><br><span class="line">lerna info versioning independent</span><br><span class="line">lerna info Executing command in 1 package: &quot;yarn run build:web&quot;</span><br><span class="line">@fiora/web: warning package.json: &quot;dependencies&quot; has dependency &quot;@testing-library/jest-dom&quot; with range &quot;^5.14.1&quot; that collides with a dependency in &quot;devDependencies&quot; of the same name with version &quot;^4.2.4&quot;</span><br><span class="line">@fiora/web: $ rm -rf dist &amp;&amp; cross-env NODE_ENV=production DOTENV_CONFIG_PATH=../../.env webpack --config build/webpack.prod.js &amp;&amp; cp -r -f dist/fiora/* ../server/public</span><br><span class="line">@fiora/web: ℹ Compiling Webpack</span><br><span class="line">@fiora/web: Browserslist: caniuse-lite is outdated. Please run:</span><br><span class="line">@fiora/web: npx browserslist@latest --update-db</span><br><span class="line">@fiora/web: Why you should do it regularly:</span><br><span class="line">@fiora/web: https://github.com/browserslist/browserslist#browsers-data-updating</span><br></pre></td></tr></table></figure>
+
+<p>到这里看似卡住，但是实际上它一直在跑，等着就行.<strong>但是一旦刷新还是得重来啊草</strong><br>没报什么错基本就是成功了（废话）</p>
+<h3 id="配置Jwtsecret"><a href="#配置Jwtsecret" class="headerlink" title="配置Jwtsecret"></a>配置Jwtsecret</h3><p><code>echo &quot;JwtSecret=&lt;string&gt;&quot; &gt; .env2</code>. 要将 <code>&lt;string&gt;</code> 替换为一个秘密文本，具体什么看你喜欢。</p>
+<h2 id="配置域名和端口"><a href="#配置域名和端口" class="headerlink" title="配置域名和端口"></a>配置域名和端口</h2><p>打开设置，找到URL&#x2F;Ports选项。<br><img src="/images/fiora-goorm/urlprts.png" alt="url"><br>可以看到它默认分配的域名是fioratt-owsii.run.goorm.io，端口是80。<br>现在fiora的默认端口是9200，所以需要把它换到80端口（其实把域名端口改到9200也可以，但是打字加上端口号很麻烦）。<br>在fiora根目录新建.env（环境变量）文件：<code>touch .env</code><br>在左边栏找到.env，打开它（编辑），第一行添加参数<code>Port=80</code><br><img src="/images/fiora-goorm/env.png" alt="port"><br>Ctrl+S保存。</p>
+<h2 id="部署网页"><a href="#部署网页" class="headerlink" title="部署网页"></a>部署网页</h2><p>首先，运行<code>redis-server</code>，确认redis服务开启之后，运行<code>mongod --fork --logpath=/data/db/log.log</code>(目的是保持MongoDB后台运行。<br>两个都正常在后台运行的输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt/fiora(master)# redis-server</span><br><span class="line">4837:C 08 Nov 2022 07:04:11.295 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">4837:C 08 Nov 2022 07:04:11.295 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=4837, just started</span><br><span class="line">4837:C 08 Nov 2022 07:04:11.295 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf</span><br><span class="line">4837:M 08 Nov 2022 07:04:11.296 * Increased maximum number of open files to 10032 (it was originally set to 1024).</span><br><span class="line">4837:M 08 Nov 2022 07:04:11.296 * monotonic clock: POSIX clock_gettime</span><br><span class="line">4837:M 08 Nov 2022 07:04:11.296 # Warning: Could not create server TCP listening socket *:6379: bind: Address already in use</span><br><span class="line">4837:M 08 Nov 2022 07:04:11.296 # Failed listening on port 6379 (TCP), aborting.</span><br><span class="line"></span><br><span class="line">root@goorm:/workspace/fioratt/fiora(master)# mongod --fork --logpath=/data/db/log.log</span><br><span class="line">about to fork child process, waiting until server is ready for connections.</span><br><span class="line">forked process: 4988</span><br><span class="line">child process started successfully, parent exiting</span><br></pre></td></tr></table></figure>
+
+<p>然后启动fiora：<code>yarn start</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@goorm:/workspace/fioratt/fiora(master)# yarn start</span><br><span class="line">yarn run v1.22.19</span><br><span class="line">$ npx lerna run start --stream</span><br><span class="line">lerna notice cli v4.0.0</span><br><span class="line">lerna info versioning independent</span><br><span class="line">lerna info Executing command in 1 package: &quot;yarn run start&quot;</span><br><span class="line">@fiora/server: $ cross-env NODE_ENV=production DOTENV_CONFIG_PATH=../../.env ts-node -r dotenv/config --transpile-only src/main.ts</span><br><span class="line">@fiora/server: [2022-11-08T07:11:09.658] [INFO] default - &gt;&gt;&gt; server listen on http://localhost:80</span><br></pre></td></tr></table></figure>
+
+<p>打开域名，应该你看到这样的页面：<br><img src="/images/fiora-goorm/fiora.png" alt="fiora"><br>几乎就是成品了。</p>
+<h2 id="保持后台运行"><a href="#保持后台运行" class="headerlink" title="保持后台运行"></a>保持后台运行</h2><p>fiora服务端也是会随着shell刷新被关闭的，所以需要pm2让它后台运行。            </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 安装 pm2</span><br><span class="line"></span><br><span class="line">npm install -g pm2</span><br><span class="line"></span><br><span class="line"># 使用 pm2 运行 fiora</span><br><span class="line"></span><br><span class="line">pm2 start yarn --name fiora -- start</span><br><span class="line"></span><br><span class="line"># 查看 pm2 应用状态</span><br><span class="line"></span><br><span class="line">pm2 ls</span><br><span class="line"></span><br><span class="line"># 查看 pm2 fiora 日志</span><br><span class="line"></span><br><span class="line">pm2 logs fiora</span><br></pre></td></tr></table></figure>
+
+<p>运行服务端：<code>pm2 start yarn --name fiora -- start</code><br>返回如下：          </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2</span><br><span class="line">[PM2] PM2 Successfully daemonized</span><br><span class="line">[PM2] Starting /root/.nvm/versions/node/v14.15.0/bin/yarn in fork_mode (1 instance)</span><br><span class="line">[PM2] Done.</span><br><span class="line">┌─────┬──────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐</span><br><span class="line">│ id │ name │ namespace │ version │ mode │ pid │ uptime │ ↺ │ status │ cpu │ mem │ user │ watching │</span><br><span class="line">├─────┼──────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤</span><br><span class="line">│ 0 │ fiora │ default │ 0.39.2 │ fork │ 5496 │ 0s │ 0 │ online │ 0% │ 26.8mb │ root │ disabled │</span><br><span class="line">└─────┴──────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘</span><br></pre></td></tr></table></figure>
+
+<p>现在就可以直接访问网页端啦。<br>最后把我自己的fiora链接放上 <a target="_blank" rel="noopener" href="https://yuki-chat.run.goorm.io/">YukiChat</a>,快来跟我聊天吧（</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2024 朝倉 初雪
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Asakura hatsuyuki
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=hatsuyuki.eu.org">
+                萌ICP备20220635号
+            </a>
+        </div>
+        
+        <p id="hitokoto">
+            <a href="#" id="hitokoto_text">:D 获取中...</a>
+          </p>
+          <script>
+            fetch('https://v1.hitokoto.cn')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text')
+                hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                hitokoto.innerText = data.hitokoto
+              })
+              .catch(console.error)
+          </script>
+          <div>
+            <img src="https://count.kjchmc.cn/get/@hatsuyuki.eu.org?theme=rule34" alt="Moe Counter">
+          </div>
+          <div>
+            <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+                  <img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+            </a>
+          </div>
+    </div>
+</footer>
+
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        
+
+    </body>
+</html>

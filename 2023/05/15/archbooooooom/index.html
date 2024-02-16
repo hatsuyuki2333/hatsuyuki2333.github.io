@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>我是如何把我的ArchLinux搞崩的 | 朝倉 初雪</title>
+        <meta name="author" content="Asakura hatsuyuki">
+        <meta name="description" content="吹雪摆烂的地方">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/avatar.jpg">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.1.1"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">朝倉 初雪</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+        <a href="/charts">
+            <i class="fa-solid fa-compact-disc fa-fw"></i>
+            <span>&ensp;charts</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+            <i class="fa-solid fa-download fa-fw"></i>
+            <span>&ensp;illusphere</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;朝倉 初雪</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+            <a href="/charts">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-compact-disc fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">charts</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-download fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">illusphere</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>我是如何把我的ArchLinux搞崩的 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/5/16
+        </span>
+        
+        <span class="category">
+            <a href="/categories/2023年5月/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                2023年5月
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/ArchLinux/" style="color: #ffa2c4">
+                    ArchLinux
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/日常/" style="color: #ffa2c4">
+                    日常
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="我是如何崩掉我的ArchLinux的"><a href="#我是如何崩掉我的ArchLinux的" class="headerlink" title="我是如何崩掉我的ArchLinux的"></a>我是如何崩掉我的ArchLinux的</h1><p>上一篇文章提到我把我Arch搞崩了，這裡寫一下過程，方便大家借鑒（不是     </p>
+<h2 id="包管理器"><a href="#包管理器" class="headerlink" title="包管理器"></a>包管理器</h2><p>裝過Arch的人都知道它的包管理器是pacman。不管怎麼樣，Debian的包管理器apt也是能跑起來的。不過wiki上已寫明，這兩個東西軟體列表不互通，也就是說互相不知道對方乾了什麼。     </p>
+<h2 id="為什麼我要突然要用apt"><a href="#為什麼我要突然要用apt" class="headerlink" title="為什麼我要突然要用apt"></a>為什麼我要突然要用apt</h2><p>這個鍋我十分不情願的甩給icalingua++<del>（icalingua++：這鍋我不背）</del>    </p>
+<p>icalingua++是多平台的QQ第三方客戶端。那段時間tx剛剛停止了QQLinux登錄（原因是準備大更新，沒過幾週新版就上線了），我又急著用QQ，然後裝了這個玩意。<strong>我是從Discover應用商店下載的軟體，但是Discover更新版本慢，於是我實際上安裝了舊版本</strong>。   </p>
+<blockquote>
+<p>為什麼我不用wineQQ呢，因為不知道為什麼yay補不全依賴。裝了deepinwine也不行。     </p>
+</blockquote>
+<p>登錄登不上，提示版本過低。我看了看是最新版啊（當時不知道是舊版），然後<code>pacman  -Syu</code>了一下也沒有更新。      </p>
+<p>然後我上了GitHub，看了看，哦，是舊版。       </p>
+<p>我找到Release，往下拉，發現沒有適用於Arch的版本，唯一一個認識的就是<code>deb</code>格式的安裝包。找了找，Arch可以裝dpkg，於是我費了半天事裝上了dpkg，嘗試安裝這個包，但是它報錯缺少依賴庫（基本是<code>libxxx.so</code>這些）。       </p>
+<p>然後我看了看，在Arch裡邊dpkg沒法解決依賴，得上apt，於是我又搞上了apt，還是不行。       </p>
+<p>我嘗試搜索包，但是沒有相關的包。我繼續查資料，發現沒有這方面的資料。按理說我應該已經發現不對勁了，但是我急著用QQ，就沒多想，繼續鍥而不捨的整。      </p>
+<p>然後我發現根本沒辦法補全依賴，氣得我直接<code>apt upgrade</code>，你猜怎麼著，它終於開始補依賴了，我突然挺開心，就放著它upgrade，我在旁邊寫作業。      </p>
+<p>過了一會我抬起頭，看到列表裡面有<code>libc++</code>，我覺得不大對勁：<strong>LinuxKernel是C編譯的，為什麼會缺這東西</strong>         </p>
+<p>但是已經晚了。     </p>
+<p>過了不久，apt突然停止運作，plasma提示各種軟體停止運行。我嘗試打開Konsole，打不開。還好之前已經打開的終端沒關閉，我隨便輸了個指令，它報錯 <code>bash:內存轉儲錯誤</code>。      </p>
+<p>一番折騰之後我選擇了強制關機（為什麼要強制呢？因為<code>shutdown</code>都報錯了hhhh），重啟。      </p>
+<p>但是沒啟動起來。         </p>
+<p>grub引導之後直接報RIP Code.          </p>
+<p>完了。          </p>
+<p>記下RIP code查了一下，發現最近似的案例是系統關鍵庫缺失（他就是缺了libc），很明顯這是我apt整的。       </p>
+<p>都這個樣了，沒什麼動力去修了（況且也修不好）第二天我就把系統重新安裝了。還好沒什麼重要信息在裡面。         </p>
+<h2 id="這個故事告訴我們：不要混用包管理器1111111"><a href="#這個故事告訴我們：不要混用包管理器1111111" class="headerlink" title="這個故事告訴我們：不要混用包管理器1111111"></a>這個故事告訴我們：不要混用包管理器1111111</h2><p>前面提到了，apt和pacman數據不互通。系統安裝時pacman安裝了這些庫，但是apt不知道，於是拿自己的一套替換了原有的庫，導致了系統崩潰。     </p>
+<h2 id="後來怎麼樣"><a href="#後來怎麼樣" class="headerlink" title="後來怎麼樣"></a>後來怎麼樣</h2><p>重裝完系統之後，我一看，Discover更新了，於是我終於用最新版的icalingua++登錄了QQ。<strong>icalingua++很好用，我沒有抹黑他的意思。</strong>又過了不久，QQLinux更新了，於是我換上了這個東西用著。但是平常一直用icalingua++。</p>
+<p>好消息是，我的系統再沒崩潰過（</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2024 朝倉 初雪
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Asakura hatsuyuki
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=hatsuyuki.eu.org">
+                萌ICP备20220635号
+            </a>
+        </div>
+        
+        <p id="hitokoto">
+            <a href="#" id="hitokoto_text">:D 获取中...</a>
+          </p>
+          <script>
+            fetch('https://v1.hitokoto.cn')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text')
+                hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                hitokoto.innerText = data.hitokoto
+              })
+              .catch(console.error)
+          </script>
+          <div>
+            <img src="https://count.kjchmc.cn/get/@hatsuyuki.eu.org?theme=rule34" alt="Moe Counter">
+          </div>
+          <div>
+            <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+                  <img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+            </a>
+          </div>
+    </div>
+</footer>
+
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        
+
+    </body>
+</html>

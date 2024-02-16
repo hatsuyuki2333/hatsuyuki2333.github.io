@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>EFI Shell應急啟動系統 | 朝倉 初雪</title>
+        <meta name="author" content="Asakura hatsuyuki">
+        <meta name="description" content="吹雪摆烂的地方">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/avatar.jpg">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.1.1"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">朝倉 初雪</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+        <a href="/charts">
+            <i class="fa-solid fa-compact-disc fa-fw"></i>
+            <span>&ensp;charts</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+            <i class="fa-solid fa-download fa-fw"></i>
+            <span>&ensp;illusphere</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;朝倉 初雪</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+            <a href="/charts">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-compact-disc fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">charts</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-download fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">illusphere</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>EFI Shell應急啟動系統 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/5/15
+        </span>
+        
+        <span class="category">
+            <a href="/categories/2023年5月/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                2023年5月
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/EFI-Shell/" style="color: #00bcd4">
+                    EFI Shell
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Arch-Linux/" style="color: #ff7d73">
+                    Arch Linux
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="EFI-Shell應急啟動系統"><a href="#EFI-Shell應急啟動系統" class="headerlink" title="EFI Shell應急啟動系統"></a>EFI Shell應急啟動系統</h1><p>前些日子我十分順利的把我盤裡的ArchLinux搞崩潰了（這是另一個故事，這裡暫且不談），只能重新裝了一遍。但是裝系統的時候忘了裝rEFInder，導致換一台機器引導就失效。還好電腦支援Built-in Shell，要不然這系統就算無了。</p>
+<h2 id="啟動到EFI-Shell"><a href="#啟動到EFI-Shell" class="headerlink" title="啟動到EFI Shell"></a>啟動到EFI Shell</h2><blockquote>
+<p>前置條件：電腦支援UEFI，並且USB設備已連接</p>
+</blockquote>
+<p>開機狂按boot熱鍵，找啟動項，回車進入。</p>
+<h2 id="啟動系統"><a href="#啟動系統" class="headerlink" title="啟動系統"></a>啟動系統</h2><p>uefi方式是從設備的引導文件啟動，而非legacy的引導分區。所以需要找到系統的引導文件（*.efi）。進入Shell之後首先 <code>map</code>一下設備，USB設備通常會顯示在底部，並帶有 <code>PciRoot USB</code>之類的字樣。找到設備的名稱（Shell中為黃色高亮字樣）打個比方，我這塊盤是 <code>hd957c2a</code></p>
+<blockquote>
+<p>需要注意的是 設備名不是以blk開頭的那些</p>
+</blockquote>
+<p>打開硬盤：<code>hd975c2a:</code><br>列出目錄：<code>ls</code><br>然後cd進目錄裡面找efi文件即可，知道了輸入   <code>name-of-the-file.efi</code>，回車即可。</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2024 朝倉 初雪
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Asakura hatsuyuki
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=hatsuyuki.eu.org">
+                萌ICP备20220635号
+            </a>
+        </div>
+        
+        <p id="hitokoto">
+            <a href="#" id="hitokoto_text">:D 获取中...</a>
+          </p>
+          <script>
+            fetch('https://v1.hitokoto.cn')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text')
+                hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                hitokoto.innerText = data.hitokoto
+              })
+              .catch(console.error)
+          </script>
+          <div>
+            <img src="https://count.kjchmc.cn/get/@hatsuyuki.eu.org?theme=rule34" alt="Moe Counter">
+          </div>
+          <div>
+            <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+                  <img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+            </a>
+          </div>
+    </div>
+</footer>
+
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        
+
+    </body>
+</html>

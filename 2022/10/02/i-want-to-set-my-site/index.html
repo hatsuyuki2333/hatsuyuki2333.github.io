@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>我想拥有我的博客! | 朝倉 初雪</title>
+        <meta name="author" content="Asakura hatsuyuki">
+        <meta name="description" content="吹雪摆烂的地方">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/avatar.jpg">
+        <link rel="stylesheet" href="/live2d/css/live2d.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.1.1"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">朝倉 初雪</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+        <a href="/charts">
+            <i class="fa-solid fa-compact-disc fa-fw"></i>
+            <span>&ensp;charts</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+            <i class="fa-solid fa-download fa-fw"></i>
+            <span>&ensp;illusphere</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;朝倉 初雪</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+            <a href="/charts">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-compact-disc fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">charts</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://illusphere.hatsuyuki.eu.org">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-download fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">illusphere</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>我想拥有我的博客! </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/2
+        </span>
+        
+        <span class="category">
+            <a href="/categories/2022年12月/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                2022年12月
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/blog/" style="color: #00a596">
+                    blog
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/senior/" style="color: #03a9f4">
+                    senior
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/site/" style="color: #ff7d73">
+                    site
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <blockquote>
+<p>我也说不清为什么当初想要建立自己的博客了,大概是想要<del>跟风</del>写点东西。从2019年的生日我发出了第一篇文章到现在我给重建的博客写文,从一开始的不知道写什么到现在有目的的发文章,我觉得这是一种成长。</p>
+<p>其间发生过很多事情:换了一个又一个虚拟主机,博客框架也各种尝试。时间定格在2022&#x2F;9&#x2F;12,2019-2022上半年所有的文章没了,数据库文件损坏。这促使我把博客转移到了GithubPages托管。虽然文章丢失了,但是我的足迹没有消失,我执着于写博客,一部分原因就是留下自己的足迹。</p>
+</blockquote>
+<p>言归正传。不管什么原因,你需要搭建自己的博客。所以,首先你要有一个放它的地方。对于静态博客,可部署在Github&#x2F;Cloudflare&#x2F;Gitlab&#x2F;Gitee&#x2F;Bitbucket上(如果想完全自己写HTML可以试试Neocity)。如果想搭建动态博客(Wordpress&#x2F;Typecho之类),你至少需要一个虚拟主机或者服务器。</p>
+<p>静态博客VS动态博客(简略的)</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>多账户</th>
+<th>在线编辑</th>
+<th align="center">存储</th>
+<th>便利</th>
+<th>成本</th>
+<th>稳定性</th>
+<th>多样性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动态</td>
+<td>OK</td>
+<td>OK</td>
+<td align="center">WP比较臃肿,Typecho很轻量</td>
+<td>需要配置PHP,SQL等(宝塔可以一键部署)</td>
+<td>存在</td>
+<td>当心数据库!</td>
+<td>主流框架少</td>
+</tr>
+<tr>
+<td>静态</td>
+<td>NO</td>
+<td>NO(Hexo+  Heroku可以)</td>
+<td align="center">Lite</td>
+<td>安装NodeJS&#x2F;GO&#x2F;…+Git搞定。但是命令行操作</td>
+<td>可以不存在</td>
+<td>只要托管方没事博客就没事</td>
+<td>Hexo&#x2F;Hugo&#x2F;Jekyll&#x2F;Docsify…一抓一大把</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>主题</th>
+<th>插件</th>
+<th>可访问性</th>
+<th>安全性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动态</td>
+<td>多(特效也多</td>
+<td>多</td>
+<td>国内运营商基本没问题,国外记得CDN</td>
+<td>数据库密码设的复杂些</td>
+</tr>
+<tr>
+<td>静态</td>
+<td>多</td>
+<td>多(但是可能不会用</td>
+<td>除了Gitee都在国外,加载速度较慢,只能通过自定义域名挂CDN</td>
+<td>当心Repository被别人搞了(</td>
+</tr>
+</tbody></table>
+<p>两种平台各有千秋,不能说哪个好不好,只能看你习惯什么了。</p>
+<p>预计会写各种博客搭建的教程<del>(因为都整过)</del>,时间关系,这篇文章仅作为一个开头(顺便提醒我别忘了更新)。</p>
+<p>我的知识水平有限,文章中若出现谬误,先不要生气,发送改正意见到我的邮箱,我会抽时间修正。</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2024 朝倉 初雪
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Asakura hatsuyuki
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=hatsuyuki.eu.org">
+                萌ICP备20220635号
+            </a>
+        </div>
+        
+        <p id="hitokoto">
+            <a href="#" id="hitokoto_text">:D 获取中...</a>
+          </p>
+          <script>
+            fetch('https://v1.hitokoto.cn')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text')
+                hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                hitokoto.innerText = data.hitokoto
+              })
+              .catch(console.error)
+          </script>
+          <div>
+            <img src="https://count.kjchmc.cn/get/@hatsuyuki.eu.org?theme=rule34" alt="Moe Counter">
+          </div>
+          <div>
+            <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+                  <img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+            </a>
+          </div>
+    </div>
+</footer>
+
+                    </div>
+                    <div id="landlord">
+                        <div class="message" style="opacity:0"></div>
+                        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+                        <div class="hide-button">隐藏</div>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <script type="text/javascript">
+            var message_Path = '/live2d/'
+            var home_Path = 'https://haremu.com/'  //此处修改为你的域名，必须带斜杠
+        </script>
+        <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="/live2d/js/message.js"></script>
+        <script type="text/javascript">
+            loadlive2d("live2d", "/live2d/model/tia/model.json");
+        </script>
+        
+
+    </body>
+</html>
